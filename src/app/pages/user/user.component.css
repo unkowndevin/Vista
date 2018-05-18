@@ -1,0 +1,23 @@
+.charging{
+    background: #b0bec5;
+    border-radius: 5px;
+    height: 25px;
+    margin: 0.7rem;
+    animation: charge 1.2s ease-in-out none infinite;
+}
+
+.custom{
+    height: 1px !important;
+}
+
+@keyframes charge{
+    from{
+        background: #b0bec5
+    }
+    50%{
+        background: #eceff1
+    }
+    to{
+        background: #b0bec5
+    }
+}

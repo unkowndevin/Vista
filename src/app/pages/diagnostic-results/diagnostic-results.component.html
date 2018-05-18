@@ -1,0 +1,115 @@
+<div *ngIf="!results">
+  <div class="custom-container">
+    <div class="row">
+      <div class="col s12">
+        <h3 class="blue-text">Estamos obteniendo tus resultados</h3>
+      </div>
+      <div class="col s12 offset-m6 offset-l6 offset-xl6 enter-align">
+        <div class="preloader-wrapper big active">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="results">
+  
+  <div *ngIf="results.status == 505">
+      <div class="custom-container">
+        <div class="row card">
+          <div class="col s12">
+            <h3 class="blue-text center-align">{{results.results}}</h3>
+            <h5 class="card-content">
+              Para que haya resultados que mostrar primero debes haber hecho un diagnóstico. Puede hacer un haciendo clic en el simbolo de chat en el menu de la izquierda.
+            </h5>
+            <br><br><br>
+            <p class="center-align">
+              <i class="material-icons large blue-text text-darken-1">chat</i>
+            </p>
+
+            <br><br><br>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div *ngIf="results.status == 200">
+    
+    <div class="container">
+
+      <div class="row">
+        
+        <div class="col s12"><h4 class="blue-text center-align">Resultados</h4></div>
+
+      </div>
+
+      <div class="row">
+
+        <ul class="collection">
+          <li class="collection-item">
+            <h6 class="blue-text text-darken-2">Fecha y hora de Inicio: <span class="black-text">{{results.results.begin==null ? "Indefinida" : results.results.begin}}</span></h6>
+          </li>
+          <li class="collection-item">
+            <h6 class="blue-text text-darken-2">Fecha y hora de Termino: <span class="black-text">{{results.results.end==null ? "Indefinida" : results.results.end}}</span></h6>
+          </li>
+          <li class="collection-item">
+            <h6 class="blue-text text-darken-2">Duración Total: <span class="black-text">{{results.results.finalDuration+"mins"}}</span></h6>
+          </li>
+          <li class="collection-item">
+            <h6 class="blue-text text-darken-2">Persistencia del miedo:</h6><br>
+            <span>Estimada: 
+              {{results.results.persistence.estimated==null ? "Indefinida" : results.results.persistence.estimated}}
+            </span><br>
+            <span>Recibida: 
+              {{results.results.persistence.received=="" ? "No se ha ingresado fecha de inicio" : results.results.persistence.received}}
+            </span><br>
+            <span>Notas: 
+              {{results.results.persistence.note=="" ? "No hay notas que mostrar" : results.results.persistence.note}}
+            </span>
+          </li>
+          <li class="collection-item">
+            <h6 class="blue-text text-darken-2">Conteo de mensajes intercambiados: <span class="black-text">{{results.results.messagesCount}}</span></h6>
+          </li>
+          <li class="collection-item">
+            <h6 class="blue-text text-darken-2">Palabras de alerta: </h6>
+            <span *ngIf="results.results.highlightWords<1">No hubo palabras de alerta</span>
+            <span *ngFor="let word of results.results.highlightWords" >{{results.results.highlightWords<1 ? "No se usó ninguna palabra de alerta" : word}},</span>
+          </li>
+          <li class="collection-item">
+            <h6 class="blue-text text-darken-2">Mensajes de alerta: </h6> 
+            <span *ngIf="results.results.highlightMessages<1" >No hubo mensajes de alerta</span>
+            <span *ngFor="let word of results.results.highlightMessages"><br>{{results.results.highlightMessages<1? "No hubo mensajes de alerta " : word}}</span>
+          </li>
+          <li class="collection-item">
+            <h6 class="blue-text text-darken-2">Distribución de mensajes intercambiados, relacionados con la severidad de la fobia </h6>
+            <div style="display: block">
+              <canvas baseChart
+                          [datasets]="data"
+                          [labels]="labels"
+                          [chartType]="type"
+                          [colors]="colors" ></canvas>
+            </div> 
+          </li>
+          <li class="collection-item">
+            <h6 class="blue-text text-darken-2">Conclusiones: </h6>
+            <span *ngIf="results.results.highlightMessages<1">{{results.results.conclusions=="" ? "No hay conclusiones todavia": results.results.conclusions}}</span>
+          </li>
+        </ul>
+
+      </div>
+      
+
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,27 @@
+.charging{
+    background: #b0bec5;
+    border-radius: 5px;
+    height: 35px;
+    margin: 0.3rem;
+    animation: charge 1.2s ease-in-out none infinite;
+}
+
+h6{
+    padding: 0.4rem
+}
+
+.custom{
+    height: 1px !important;
+}
+
+@keyframes charge{
+    from{
+        background: #b0bec5
+    }
+    50%{
+        background: #eceff1
+    }
+    to{
+        background: #b0bec5
+    }
+}

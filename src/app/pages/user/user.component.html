@@ -1,0 +1,127 @@
+<div class="row">
+
+    <div class="col s12 m4 l2 xl2 hoverable">
+        <div class="row">
+        
+            <div class="col s10 offset-s1 m10 offset-m1 l10 offset-l1 xl10 offset-xl1">
+                <span class="card-title blue-text lighten-1"><b>Datos Personales</b></span>
+            </div>
+        
+        </div>
+        <div class="row" *ngIf="!userData">
+        
+            <div class="col s12 m10 l10 xl10 offset-m1 offset-l1 offset-xl1 blue-grey lighten-3 charging">
+            </div>
+        
+            
+        
+            <div class="col s12 m10 l10 xl10 offset-m1 offset-l1 offset-xl1 charging"></div>
+        
+            <div class="col s12 m10 l10 xl10 offset-m1 offset-l1 offset-xl1 blue-grey lighten-3 charging">
+            </div>
+        
+            
+        
+            <div class="col s12 m10 l10 xl10 offset-m1 offset-l1 offset-xl1 charging"></div>
+        
+            <div class="col s12 m10 l10 xl10 offset-m1 offset-l1 offset-xl1 blue-grey lighten-3 charging">
+            </div>
+        
+            
+        
+            <div class="col s12 m10 l10 xl10 offset-m1 offset-l1 offset-xl1 charging"></div>
+        
+            <div class="col s12 m10 l10 xl10 offset-m1 offset-l1 offset-xl1 blue-grey lighten-3 charging">
+            </div>
+        
+            
+        
+            <div class="col s12 m10 l10 xl10 offset-m1 offset-l1 offset-xl1 charging"></div>
+        
+            <div class="col s12 m10 l10 xl10 offset-m1 offset-l1 offset-xl1 blue-grey lighten-3 charging">
+            </div>
+        
+            
+        
+            <div class="col s12 m10 l10 xl10 offset-m1 offset-l1 offset-xl1 charging"></div>
+        
+            <div class="col s12 m10 l10 xl10 offset-m1 offset-l1 offset-xl1 blue-grey lighten-3 charging">
+            </div>
+        
+            
+        
+            <div class="col s12 m10 l10 xl10 offset-m1 offset-l1 offset-xl1 charging"></div>
+        
+            <div class="col s12 m10 l10 xl10 offset-m1 offset-l1 offset-xl1 blue-grey lighten-3 charging">
+            </div>
+        
+            
+        
+            <div class="col s12 m10 l10 xl10 offset-m1 offset-l1 offset-xl1 charging"></div>
+        
+        </div>
+        
+        <div class="row" *ngIf="userData">
+        
+            <div class="col s12">
+            <p class="blue-text text-darken-2">Nombre</p>
+            </div>
+            
+            <div class="col s12"><h6>{{userData.name}}</h6></div>
+        
+            <div class="col s12">
+            <p class="blue-text text-darken-2">Apellidos</p>
+            </div>
+        
+            
+            
+            <div class="col s12"><h6>{{userData.last_name}}</h6></div>
+            
+            <div class="col s12">
+            <p class="blue-text text-darken-2">Nombre de Usuario</p>
+            </div>
+        
+            
+            
+            <div class="col s12"><h6>{{userData.nick_name}}</h6></div>
+        
+            <div class="col s12">
+            <p class="blue-text text-darken-2">Correo electrónico</p>
+            </div>
+        
+            
+            
+            <div class="col s12"><h6>{{userData.email}}</h6></div>
+        
+            <div class="col s12">
+            <p class="blue-text text-darken-2">Fecha de Nacimiento</p>
+            </div>
+        
+            
+            
+            <div class="col s12"><h6>{{userData.birth_date}}</h6></div>
+        
+            <div class="col s12">
+            <p class="blue-text text-darken-2">Pais</p>
+            </div>
+        
+            
+            
+            <div class="col s12"><h6>{{userData.place}}</h6></div>
+        
+            <div class="col s12">
+            <p class="blue-text text-darken-2">Genero</p>
+            </div>
+        
+            
+            
+            <div class="col s12"><h6>{{userData.genre}}</h6></div>
+        
+        </div>
+                  
+    </div>
+    <div class="col s12 m8 l10 xl10">
+        <router-outlet></router-outlet>
+    </div>
+
+</div>

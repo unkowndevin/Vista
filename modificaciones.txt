@@ -1,0 +1,2 @@
+sesion en navbar, response en navbar
+perfil

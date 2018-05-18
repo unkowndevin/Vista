@@ -1,0 +1,22 @@
+<div class="row full-height">
+    <div class="col s12 m2 l1 xl1">
+        <div class="fixed-action-btn">
+            <a class="btn-floating waves-effect waves-light btn-large blue">
+              <i class="large material-icons">menu</i>
+            </a>
+            <ul>
+              <li><a class="btn-floating waves-effect waves-light btn-large green"
+                [routerLink]="['./resultados']" [routerLinkActive]="['active']"><i class="material-icons">insert_chart</i></a></li>
+              <li><a class="btn-floating waves-effect waves-light btn-large teal"
+                [routerLink]="['./chat']" [routerLinkActive]="['active']"><i class="material-icons">chat</i></a></li>
+              <li><a class="btn-floating waves-effect waves-light btn-large cyan"
+                [routerLink]="['./menu']" [routerLinkActive]="['active']"><i class="material-icons">help_outline</i></a></li>
+            <li><a class="btn-floating waves-effect waves-light btn-large ligh-blue"
+                [routerLink]="['/']" [routerLinkActive]="['active']"><i class="material-icons">arrow_back</i></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col s12 m10 l11 xl11 offset-m2 offset-l1 offset-xl1 full-height">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="progress cyan lighten-3" *ngIf="loading" style="margin:-0.1px !important">
+  <div class="indeterminate cyan"></div>
+</div>
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <br>
+    <div class="col s12 m8 offset-m2 l8 offset-l2 xl6 offset-xl3 card" [@shake]="animationTrigger" (@shake.done)="reinitAnimation()">
+      <div>
+        <div class="row">
+          <div class="center-text">
+            <i class="material-icons blue-text lighten-1" (click)="back()" style="cursor: pointer">arrow_back</i>
+          </div>
+          <br>
+          <div class="col s10 offset-s1 m10 offset-m1 l10 offset-l1 xl10 offset-xl1">
+            <span class="card-title blue-text lighten-1">Inicia Sesión</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="divider"></div>
+        </div>
+        <div class="row">
+          <form [formGroup]="userForm" (ngSubmit)="logIn()" class="col s10 offset-s1 m10 offset-m1 l10 offset-l1 xl10 offset-xl1 container">
+            <div class="row">
+              <div class="input-field">
+                <input type="email" [ngClass]="{'invalid': (email.invalid && email.dirty)||(response && response.status==503), 'valid': email.valid && email.dirty}" id="email" required formControlName="email" (focus)="response ? response.status=500 : response=response">
+                <label for="email">Correo electrónico</label>
+                  <span class="helper-text red-text darken-1" *ngIf="(email.touched || email.dirty) && email.errors?.required">No olvides el correo electrónico</span>
+                  <span class="helper-text red-text darken-1" *ngIf="(email.touched || email.dirty) && email.errors?.minlength">El correo debe tener al menos 5 caracteres</span>
+                  <span class="helper-text red-text darken-1" *ngIf="(email.touched || email.dirty) && email.errors?.maxlength">El correo no debe tener mas de 320 caracteres</span>
+                  <span class="helper-text red-text darken-1" *ngIf="(email.touched || email.dirty) && email.errors?.pattern && !email.errors?.minlength">El correo electrónico tiene la siguiente estructura: "algo@algo.algo"</span>
+                  <span class="helper-text red-text darken-1" *ngIf="response && response.status == 503">{{response.message}}</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field">
+                <input type="password" [ngClass]="{'invalid': password.invalid && password.dirty, 'valid': password.valid && password.dirty}" [class.invalid]="response && response.status==504" id="password" required formControlName="password" (focus)="response ? response.status=500 : response=response">
+                <label for="password">Contraseña</label>
+                  <span class="helper-text red-text darken-1" *ngIf="(password.touched || password.dirty) && password.errors?.required">No olvides el correo electrónico</span>
+                  <span class="helper-text red-text darken-1" *ngIf="(password.touched || password.dirty) && password.errors?.minlength">La contraseña no puede tener menos de 6 caracteres</span>
+                  <span class="helper-text red-text darken-1" *ngIf="(password.touched || password.dirty) && password.errors?.pattern && !password.errors?.minlength">La contraseña solo puede tener números, letras del alfabeto inglés y los siguientes caracteres especiales: .-*/+&%$#@=?¡¿,;|°</span>
+                  <span class="helper-text red-text darken-1" *ngIf="(password.touched || password.dirty) && password.errors?.maxlength">La contraseña no puede tener mas de 26 caracteres</span>
+                  <span class="helper-text red-text darken-1" *ngIf="response && response.status == 504">{{response.message}}</span>
+              </div>
+            </div>
+            <div class="row">
+              <a [routerLink]="['/dev','registrate']">¿No éstas registrado? Hazlo ahora mismo</a>
+            </div>
+            <div class="row right-align">
+              <button class="btn light-blue lighten-2 waves-effect waves-light" [disabled]="userForm.invalid">Entrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<nav class="waves-effect waves-light">
+  <div class="nav-wrapper custom-container">
+    <a [routerLink]="['inicio']" class="brand-logo">FAHRER</a>
+    <a data-target="mobile-menu" class="sidenav-trigger">
+      <i class="material-icons">menu</i>
+    </a>
+    <ul class="right hide-on-med-and-down container">
+      <li [routerLinkActive]="['active']">
+        <a [routerLink]="['nuestro+proyecto']" class="waves-effect waves-light">Sobre Fahrer</a>
+      </li>
+      <!-- 
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['conocenos']" class="waves-effect waves-light">UNDEVIN</a>
+        </li>
+       -->
+      <li [routerLinkActive]="['active']" *ngIf="response && response.message<0">
+        <a [routerLink]="['/dev/entra']" class="waves-effect waves-light">Inicia Sesión</a>
+      </li>
+      <li [routerLinkActive]="['active']"  class="white" *ngIf="response && response.message<0">
+        <a [routerLink]="['/dev/registrate']" class="waves-effect waves-light blue-text">Registrate</a>
+      </li>
+      <li [routerLinkActive]="['active']" *ngIf="response && response.message>=0">
+        <a [routerLink]="['/undevin/diagnostico']" class="waves-effect waves-light">Diagnostico</a>
+      </li>
+      <li [routerLinkActive]="['active']" *ngIf="response && response.message>=0">
+        <a [routerLink]="['cuenta','resultados']" class="waves-effect waves-light">Cuenta</a>
+      </li>
+      <li [routerLinkActive]="['active']" *ngIf="response && response.message>=1">
+        <a [routerLink]="['admin','usuarios']" class="waves-effect waves-light">Administrador</a>
+      </li>
+      <li [routerLinkActive]="['active']" *ngIf="response && response.message>=0">
+        <a (click)="logOut()" class="waves-effect waves-light">Cerrar Sesión</a>
+      </li>
+
+    </ul>
+    <ul id="mobile-menu" class="sidenav">
+      <li [routerLinkActive]="['active']">
+        <a [routerLink]="['inicio']" [routerLinkActive]="['light-blue-text','lighten-2']" class="sidenav-close">Inicio</a>
+      </li>
+      <li><div class="divider"></div></li>
+      <li [routerLinkActive]="['active']">
+        <a [routerLink]="['nuestro+proyecto']" [routerLinkActive]="['light-blue-text','lighten-2']" class="sidenav-close">¿Qué es Fahrer?</a>
+      </li>
+      <li [routerLinkActive]="['active']">
+        <a [routerLink]="['conocenos']" [routerLinkActive]="['light-blue-text','lighten-2']" class="sidenav-close">Conocenos</a>
+      </li>
+      <li [routerLinkActive]="['active']" *ngIf="response && response.message<0">
+        <a [routerLink]="['/dev/entra']" [routerLinkActive]="['light-blue-text','lighten-2']" class="sidenav-close">Inicia Sesión</a>
+      </li>
+      <li [routerLinkActive]="['active']" *ngIf="response && response.message>=0">
+        <a [routerLink]="['/undevin/diagnostico']" [routerLinkActive]="['light-blue-text','lighten-2']" class="sidenav-close">Diagnóstico</a>
+      </li>
+      <li [routerLinkActive]="['active']" *ngIf="response && response.message>=0">
+        <a [routerLink]="['usuario','perfil']" [routerLinkActive]="['light-blue-text','lighten-2']" class="sidenav-close">Perfil</a>
+      </li>
+      <li [routerLinkActive]="['active']" *ngIf="response && response.message>=1">
+        <a [routerLink]="['admin','usuarios']" [routerLinkActive]="['light-blue-text','lighten-2']" class="sidenav-close">Administrador</a>
+      </li>
+      <li [routerLinkActive]="['active']" *ngIf="response && response.message>=0">
+        <a (click)="logOut()" [routerLinkActive]="['light-blue-text','lighten-2']" class="sidenav-close">Cerrar Sesión</a>
+      </li>
+    </ul>
+  </div>
+</nav>

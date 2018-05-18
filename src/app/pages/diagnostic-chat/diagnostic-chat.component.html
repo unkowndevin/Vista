@@ -1,0 +1,12 @@
+<div class="container chat-container trick">
+  <div class="row">
+    <form [formGroup]="group" (ngSubmit)="sendMessage()" class="col s10 offset-s1 m10 offset-m1 l10 offset-l1 xl10 offset-xl1 container">
+      <input [disabled]="end" type="text" required formControlName="message" class="message" placeholder="Presiona entre para enviar tu mensaje">
+    </form>
+  </div>
+  <div class="row" *ngIf="messages">
+    <div *ngFor="let mess of messages" class="col s10 offset-s1 m10 offset-m1 l10 offset-l1 xl10 offset-xl1 message-custom" [ngClass]="{'blue' : mess.type, 'mine' : mess.type, 'white-text' : mess.type}">
+      {{mess.message}}
+    </div>
+  </div>
+</div>
